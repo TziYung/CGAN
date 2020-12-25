@@ -24,7 +24,6 @@ from tensorflow.keras.datasets.mnist import load_data
 (x_train, y_train), (_, _) = load_data()
 x_train=numpy.expand_dims(x_train,axis= -1)
 x_train=x_train.astype('float32')
-x_train=(x_train-127.5)/127.5
 real=[]
 for index in range(x_train.shape[0]):
     real.append([[[y_train[index]],x_train[index]],1])

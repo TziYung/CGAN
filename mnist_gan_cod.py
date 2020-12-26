@@ -7,11 +7,8 @@ import numpy
 import time
 from matplotlib import pyplot 
 import random
-import pandas
-import os
 import tensorflow as tf
 from matplotlib.animation import FuncAnimation
-from multiprocessing import Process
 import datetime
 gpus= tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(gpus[0], True)
@@ -24,6 +21,7 @@ from tensorflow.keras.datasets.mnist import load_data
 (x_train, y_train), (_, _) = load_data()
 x_train=numpy.expand_dims(x_train,axis= -1)
 x_train=x_train.astype('float32')
+x_train=(x_train-127.5)/127.5
 real=[]
 for index in range(x_train.shape[0]):
     real.append([[[y_train[index]],x_train[index]],1])

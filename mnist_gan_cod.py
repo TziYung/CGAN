@@ -12,12 +12,10 @@ from matplotlib.animation import FuncAnimation
 import datetime
 gpus= tf.config.experimental.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(gpus[0], True)
-# print(gpus)
 
 #%%
-# #import data
 from tensorflow.keras.datasets.mnist import load_data
-# from tensorflow.keras.datasets.fashion_mnist import load_data
+
 (x_train, y_train), (_, _) = load_data()
 x_train=numpy.expand_dims(x_train,axis= -1)
 x_train=x_train.astype('float32')
